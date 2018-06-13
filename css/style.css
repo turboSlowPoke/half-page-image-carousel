@@ -16,11 +16,22 @@ body,
 /* Adjustment for mobile devices*/
 
 @media (max-width: 776px) {
-
   .carousel {
-    height: 100%; } }
-@media(min-width: 775px) {
-  .nodisplay{
+    height: 50%; }
+  .display_on_big_screen{
+    background-image: url(../img/head_backgraund.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media(min-width: 776px) {
+  .display_on_big_screen{
+    background-image: url(../img/shapka.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .display_on_litle_screen{
     display: none;
   }
 }
@@ -33,13 +44,14 @@ body,
   background-color: #929FBA; }
 
 /* Adding color to the Navbar on mobile */
-@media only screen and (max-width: 768px) {
-  .navbar {
-    background-color: #929FBA; } }
+/*@media only screen and (max-width: 768px) {*/
+  /*.navbar {*/
+    /*background-color: #929FBA; } }*/
 
 /* Footer color for sake of consistency with Navbar */
 .page-footer {
-  background-color: #929FBA; }
+  background-color: #929FBA;
+}
 
 
 
