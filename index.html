@@ -17,10 +17,51 @@
 </head>
 
 <body>
+<div class="modal fade" id="signInModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Авторизация</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+      </div>
+      <div class="modal-body">
+        <form action="/login" method="post">
+          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+          <div class="form-group row">
+            <label for="exampleInputLogin" class="col-sm-2 col-form-label">Логин: </label>
+            <div class="col-sm-9">
+              <input type="text" name="username" class="form-control" id="exampleInputLogin" placeholder="login" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputPassword1" class="col-sm-2 col-form-label">Пароль:</label>
+            <div class="col-sm-9">
+              <input type="password" name="password" class="form-control"  id="exampleInputPassword1" placeholder="password" required>
+            </div>
+          </div>
+          <!--<div class="form-check">-->
+          <!--<input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+          <!--<label class="form-check-label" for="exampleCheck1">Check me out</label>-->
+        <!--</div>-->
+          <button type="submit" class="btn btn-primary btn-sm">Войти</button>
+          <hr class="my-1">
+          Также вы можете войти черз Google:
+          <a class="btn btn-outline-red btn-sm" href="oauth2/authorization/google" title="Авторизоваться через Google" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-google" aria-hidden="true"></i></a><br>
+          Получить логин пароль в телеграм:
+          <a class="btn btn-outline-blue btn-sm" href="#" title="Получить логин пароль у нашего бота" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+        </form>
+      </div>
+      <div class="modal-bottom">
+        <button class="btn btn-default float-right btn-sm" type="button" data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
     <div class="container">
       <!-- Brand -->
-      <a class="navbar-brand" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">
+      <a class="navbar-brand" href="https://mdbootstrap.com/material-design-for-bootstrap/" >
         <strong>
           <i class="fa fa-television" aria-hidden="true"></i>
           <i class="fa fa-line-chart" aria-hidden="true"></i>
@@ -38,29 +79,29 @@
             <a class="nav-link" href="#">Главаная </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" target="_blank">О нас</a>
+            <a class="nav-link" href="#">О нас</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" target="_blank">Контакты</a>
+            <a class="nav-link" href="#">Контакты</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" target="_blank">FAQ
+            <a class="nav-link" href="#">FAQ
               <br> </a>
           </li>
         </ul>
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item">
-            <a href="#" class="nav-link" target="_blank"> </a>
+            <a href="#" class="nav-link"> </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link" target="_blank">
+          <li class="nav-item pr-lg-3">
+            <a href="#" class="nav-link"  title="Авторизоваться через Google" data-toggle="tooltip" data-placement="bottom">
               <i class="fa fa-google" aria-hidden="true"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link border border-light rounded" target="_blank">
-              <i class="fa fa-sign-in" aria-hidden="true"></i>
+            <a href="#" class="nav-link border border-light rounded" title="Войти в личный кабинет" data-toggle="modal" data-placement="bottom" data-target="#signInModal">
+              <i class="fa fa-sign-in pr-2" aria-hidden="true"></i>кабинет
             </a>
           </li>
         </ul>
@@ -74,10 +115,10 @@
         <div class="view display_on_big_screen" >
           <div class="container  display_on_litle_screen">
             <div class="row display_on_litle_screen">
-              <div class="col-md-12 display_on_litle_screen"><img src="img/head_TV.png" class="img-fluid w-75  pt-5 display_on_litle_screen"></div>
+              <div class="col-md-12 display_on_litle_screen"><img src="img/head_TV.png" class="img-fluid w-75 float-right pt-5 display_on_litle_screen"></div>
             </div>
             <div class="row display_on_litle_screen">
-              <div class="col-md-12 display_on_litle_screen"><img src="img/head_text.png" class="img-fluid display_on_litle_screen"></div>
+              <div class="col-md-12 display_on_litle_screen"><img src="img/head_text.png" class="img-fluid float-left display_on_litle_screen"></div>
             </div>
           </div>
         </div>
@@ -93,7 +134,10 @@
         <div class="row">
           <!--Grid column-->
           <div class="col-md-6 mb-4">
-            <img src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-main.jpg" class="img-fluid z-depth-1-half" alt=""> </div>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cXTThxoywNQ" allowfullscreen=""></iframe>
+            </div>
+          </div>
           <!--Grid column-->
           <!--Grid column-->
           <div class="col-md-6 mb-4">
@@ -111,7 +155,7 @@
               <strong>Free for personal and commercial use.</strong>
             </p>
             <!-- CTA -->
-            <a target="_blank" href="https://mdbootstrap.com/getting-started/" class="btn btn-grey btn-md">присоединиться</a>
+            <a href="#" class="btn btn-grey btn-md">присоединиться <i class="fa fa-sign-in pl-2" aria-hidden="true"></i></a>
           </div>
           <!--Grid column-->
         </div>
@@ -156,10 +200,7 @@
           <!--/Grid column-->
           <!--Grid column-->
           <div class="col-lg-6 col-md-12">
-            <p class="h5 text-center mb-4">Посмореть видео</p>
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cXTThxoywNQ" allowfullscreen=""></iframe>
-            </div>
+            <img src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-main.jpg" class="img-fluid z-depth-1-half" alt="">
           </div>
           <!--/Grid column-->
         </div>
@@ -299,43 +340,31 @@
   <footer class="page-footer text-center font-small mt-4 wow fadeIn">
     <!--Call to action-->
     <div class="pt-4">
-      <a class="btn btn-outline-white" href="#" target="_blank" role="button">Присоединиться &nbsp; &nbsp; &nbsp; &nbsp;
-        <i class="fa fa-download ml-2"></i>
+      <a class="btn btn-outline-white" href="#" role="button">Присоединиться &nbsp; &nbsp; &nbsp; &nbsp;
+        <i class="fa fa-sign-in ml-2"></i>
       </a>
     </div>
     <!--/.Call to action-->
     <hr class="my-4">
     <!-- Social icons -->
     <div class="pb-4">
-      <a href="https://www.facebook.com/mdbootstrap" target="_blank">
-        <i class="fa fa-facebook mr-3"></i>
+      <a href="#">
+        <i class="fa fa-vk mr-3"></i>
       </a>
-      <a href="https://twitter.com/MDBootstrap" target="_blank">
-        <i class="fa fa-twitter mr-3"></i>
-      </a>
-      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+      <a href="#">
         <i class="fa fa-youtube mr-3"></i>
       </a>
-      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
-        <i class="fa fa-google-plus mr-3"></i>
+      <a href="#">
+        <i class="fa fa-telegram mr-3"></i>
       </a>
-      <a href="https://dribbble.com/mdbootstrap" target="_blank">
-        <i class="fa fa-dribbble mr-3"></i>
-      </a>
-      <a href="https://pinterest.com/mdbootstrap" target="_blank">
-        <i class="fa fa-pinterest mr-3"></i>
-      </a>
-      <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
-        <i class="fa fa-github mr-3"></i>
-      </a>
-      <a href="http://codepen.io/mdbootstrap/" target="_blank">
-        <i class="fa fa-codepen mr-3"></i>
+      <a href="#">
+        <i class="fa fa-instagram mr-3"></i>
       </a>
     </div>
     <!-- Social icons -->
     <!--Copyright-->
     <div class="footer-copyright py-3"> © 2018 Copyright:
-      <a href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank"> MDBootstrap.com </a>
+      <a href="#"> ontvnotshow.com </a>
     </div>
     <!--/.Copyright-->
   </footer>
@@ -349,14 +378,15 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <!-- Initializations -->
   <script type="text/javascript">
     // Animations initialization
     new WOW().init();
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
   </script>
-  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:250px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;
-    <img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16">
-  </pingendo>
 </body>
 
 </html>
