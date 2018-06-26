@@ -5,32 +5,29 @@ body,
   height: 100%; }
 
 /* Half Page Carousel itself*/
-.carousel {
-  height: 50%; }
-  .carousel .carousel-inner {
-    height: 100%; }
-    .carousel .carousel-inner .carousel-item,
-    .carousel .carousel-inner .active {
-      height: 100%; }
+  /*.carousel .carousel-inner {*/
+    /*height: 100%; }*/
+    /*.carousel .carousel-inner .carousel-item,*/
+    /*.carousel .carousel-inner .active {*/
+      /*height: 100%; }*/
 
 /* Adjustment for mobile devices*/
 
 @media (max-width: 776px) {
-  .carousel {
-    height: 50%; }
   .display_on_big_screen{
-    background-image: url(../img/head_backgraund.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    display: none;
   }
 }
 
+.display{
+  height: 50%;
+  background-image: url(../img/head_backgraund.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 @media(min-width: 776px) {
-  .display_on_big_screen{
-    background-image: url(../img/shapka.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
   .display_on_litle_screen{
     display: none;
   }
